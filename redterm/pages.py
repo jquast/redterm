@@ -93,7 +93,7 @@ class PageSubreddit(PageBase):
 
         PageBase.__init__(self, '/r/' + self.subreddit_title, width, indent=2)
 
-        self.submissions = reddit_api.get_subreddit(self.subreddit_title).get_hot(limit=1000)
+        self.submissions = reddit_api.subreddit(self.subreddit_title).hot(limit=1000)
 
         for i in range(LIMIT):
             self.items.append(next(self.submissions))
